@@ -1,249 +1,580 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Lago Azul es un despacho legal en El Alto, Bolivia, con atención en derecho penal, civil, familiar y registral.">
-  <meta name="theme-color" content="#0A1628">
-  <meta property="og:title" content="Lago Azul | Despacho Legal en El Alto">
-  <meta property="og:description" content="Asesoría jurídica estratégica en derecho penal, civil, familiar y registral.">
-  <meta property="og:type" content="website">
-  <title>Lago Azul | Despacho Legal · El Alto, Bolivia</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Despacho Legal Lago Azul — Asesoría jurídica estratégica en El Alto, Bolivia. Procesos penales, civiles, familiares, Ley 348, DDRR y más. Consulta gratuita." />
+  <title>Lago Azul — Despacho Legal | El Alto, Bolivia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <a class="skip-link" href="#contenido">Saltar al contenido principal</a>
 
-  <header class="site-header" id="inicio">
-    <nav class="navbar container" aria-label="Navegación principal">
-      <a class="brand" href="#inicio" aria-label="Lago Azul, inicio">
-        <span class="brand-mark" aria-hidden="true">⚖</span>
-        <span class="brand-name">Lago <strong>Azul</strong></span>
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ═══════════════════════════════════════════ -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#inicio" class="nav-logo">
+        <span class="logo-icon">⚖</span>
+        <span class="logo-text">Lago <span class="logo-accent">Azul</span></span>
       </a>
 
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#servicios" class="nav-link">Servicios</a>
+        <a href="#equipo" class="nav-link">El Equipo</a>
+        <a href="#ubicacion" class="nav-link">Ubicación</a>
+        <a href="https://wa.me/59171571550?text=Hola%2C%20quisiera%20una%20consulta%20gratuita%20con%20Lago%20Azul." target="_blank" rel="noopener" class="nav-cta">Consulta Gratis por WhatsApp</a>
+      </nav>
 
-      <div class="nav-links" id="primary-menu">
-        <a href="#servicios">Servicios</a>
-        <a href="#proceso">Cómo trabajamos</a>
-        <a href="#equipo">El equipo</a>
-        <a href="#ubicacion">Ubicación</a>
-        <a class="button button-small button-gold" href="https://wa.me/59171571550?text=Hola%2C%20quisiera%20solicitar%20una%20consulta%20con%20Lago%20Azul." target="_blank" rel="noopener">Consulta por WhatsApp</a>
-      </div>
-    </nav>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
   </header>
 
-  <main id="contenido">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-decoration" aria-hidden="true"></div>
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">Despacho legal · El Alto, Bolivia</p>
-          <h1 id="hero-title">Defensa jurídica <span>estratégica</span> cuando más la necesita.</h1>
-          <p class="hero-description">Orientación clara y acompañamiento responsable en asuntos penales, civiles, familiares y registrales.</p>
-          <div class="hero-actions">
-            <a class="button button-gold" href="https://wa.me/59171571550?text=Hola%2C%20quisiera%20solicitar%20una%20consulta%20con%20Lago%20Azul." target="_blank" rel="noopener">Solicitar una consulta</a>
-            <a class="button button-outline" href="#servicios">Conocer servicios</a>
-          </div>
-          <ul class="hero-highlights" aria-label="Razones para elegir Lago Azul">
-            <li><span aria-hidden="true">✓</span> Atención directa y confidencial</li>
-            <li><span aria-hidden="true">✓</span> Presencia en El Alto y La Paz</li>
-            <li><span aria-hidden="true">✓</span> Consulta inicial por WhatsApp</li>
-          </ul>
-        </div>
-        <aside class="hero-card" aria-label="Áreas de atención">
-          <p class="card-label">Áreas principales</p>
-          <ul>
-            <li><span>01</span> Derecho Penal</li>
-            <li><span>02</span> Derecho Civil</li>
-            <li><span>03</span> Derecho Familiar</li>
-            <li><span>04</span> Derecho Registral</li>
-          </ul>
-          <p class="hero-card-note">Una consulta oportuna permite evaluar sus opciones con mayor claridad.</p>
-        </aside>
+  <!-- Overlay menú móvil -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════ -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-diagonal"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Despacho Legal · El Alto, Bolivia</p>
+      <h1 class="hero-title">
+        Asesoría Legal<br/>
+        <span class="hero-title-accent">Estratégica</span> e<br/>
+        Inmediata
+      </h1>
+      <p class="hero-subtitle">
+        Defendemos sus derechos con experiencia, rapidez y presencia directa en los Juzgados de El Alto. Primera consulta completamente gratuita.
+      </p>
+      <div class="hero-actions">
+        <a href="https://wa.me/59171571550?text=Hola%2C%20quisiera%20una%20consulta%20gratuita%20con%20Lago%20Azul." target="_blank" rel="noopener" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consulta Gratis Ahora
+        </a>
+        <a href="#servicios" class="btn btn-secondary">Ver Nuestros Servicios</a>
       </div>
-    </section>
-
-    <section class="services section" id="servicios" aria-labelledby="services-title">
-      <div class="container">
-        <header class="section-heading">
-          <p class="eyebrow">Áreas de práctica</p>
-          <h2 id="services-title">Soluciones legales para situaciones que importan.</h2>
-          <p>Seleccione un área para conocer una muestra de los asuntos en los que el despacho puede orientarle.</p>
-        </header>
-
-        <div class="service-tabs" data-tabs>
-          <div class="tab-list" role="tablist" aria-label="Áreas de práctica">
-            <button class="tab-button is-active" id="tab-penal" type="button" role="tab" aria-selected="true" aria-controls="panel-penal" data-tab="penal">Penal</button>
-            <button class="tab-button" id="tab-civil" type="button" role="tab" aria-selected="false" aria-controls="panel-civil" data-tab="civil">Civil</button>
-            <button class="tab-button" id="tab-familiar" type="button" role="tab" aria-selected="false" aria-controls="panel-familiar" data-tab="familiar">Familiar</button>
-            <button class="tab-button" id="tab-registral" type="button" role="tab" aria-selected="false" aria-controls="panel-registral" data-tab="registral">Registral</button>
-            <button class="tab-button" id="tab-documentos" type="button" role="tab" aria-selected="false" aria-controls="panel-documentos" data-tab="documentos">Documentos</button>
-          </div>
-
-          <article class="tab-panel is-active" id="panel-penal" role="tabpanel" aria-labelledby="tab-penal" data-panel="penal">
-            <div class="panel-intro"><span class="area-icon" aria-hidden="true">⚖</span><div><h3>Derecho Penal</h3><p>Defensa y orientación técnica desde las primeras actuaciones del proceso.</p></div></div>
-            <div class="service-grid">
-              <article><h4>Etapa preliminar</h4><p>Orientación ante denuncias, aprehensiones y primeras diligencias investigativas.</p></article>
-              <article><h4>Medidas cautelares</h4><p>Defensa en audiencias, solicitudes de modificación y alternativas legales pertinentes.</p></article>
-              <article><h4>Incidentes y recursos</h4><p>Análisis de actuaciones procesales y planteamiento de los mecanismos que correspondan.</p></article>
-              <article><h4>Juicio y salidas alternativas</h4><p>Preparación de estrategia procesal según los antecedentes concretos de cada caso.</p></article>
-            </div>
-          </article>
-
-          <article class="tab-panel" id="panel-civil" role="tabpanel" aria-labelledby="tab-civil" data-panel="civil" hidden>
-            <div class="panel-intro"><span class="area-icon" aria-hidden="true">📜</span><div><h3>Derecho Civil</h3><p>Protección de derechos patrimoniales, obligaciones y relaciones contractuales.</p></div></div>
-            <div class="service-grid">
-              <article><h4>Cobro de deudas</h4><p>Revisión de documentos, obligaciones y vías de recuperación aplicables.</p></article>
-              <article><h4>Procesos ejecutivos</h4><p>Orientación para la ejecución de títulos y obligaciones exigibles.</p></article>
-              <article><h4>Usucapión</h4><p>Evaluación inicial de la posesión y de la documentación necesaria.</p></article>
-              <article><h4>Contratos y anticréticos</h4><p>Redacción, revisión y análisis de riesgos antes de firmar.</p></article>
-            </div>
-          </article>
-
-          <article class="tab-panel" id="panel-familiar" role="tabpanel" aria-labelledby="tab-familiar" data-panel="familiar" hidden>
-            <div class="panel-intro"><span class="area-icon" aria-hidden="true">⌂</span><div><h3>Derecho Familiar</h3><p>Acompañamiento discreto y respetuoso en asuntos que involucran a su familia.</p></div></div>
-            <div class="service-grid">
-              <article><h4>Asistencia familiar</h4><p>Orientación sobre fijación, modificación y cumplimiento de asistencia familiar.</p></article>
-              <article><h4>Divorcios</h4><p>Información inicial sobre divorcios, acuerdos, bienes y medidas relacionadas.</p></article>
-              <article><h4>Guarda y tenencia</h4><p>Análisis de alternativas priorizando el interés superior de niñas, niños y adolescentes.</p></article>
-              <article><h4>Violencia familiar</h4><p>Orientación inicial y acompañamiento responsable en casos bajo la Ley 348.</p></article>
-            </div>
-          </article>
-
-          <article class="tab-panel" id="panel-registral" role="tabpanel" aria-labelledby="tab-registral" data-panel="registral" hidden>
-            <div class="panel-intro"><span class="area-icon" aria-hidden="true">⌑</span><div><h3>Derecho Registral</h3><p>Apoyo para ordenar y resguardar la situación jurídica de sus bienes.</p></div></div>
-            <div class="service-grid">
-              <article><h4>Trámites en DDRR</h4><p>Orientación sobre inscripciones, transferencias y actos registrales.</p></article>
-              <article><h4>Aclaración de datos</h4><p>Revisión de inconsistencias en datos técnicos o de identidad.</p></article>
-              <article><h4>Minutas de inmuebles</h4><p>Documentos para transferencias, anticréticos e hipotecas.</p></article>
-              <article><h4>Seguridad documental</h4><p>Verificación inicial de documentación para reducir riesgos en una operación.</p></article>
-            </div>
-          </article>
-
-          <article class="tab-panel" id="panel-documentos" role="tabpanel" aria-labelledby="tab-documentos" data-panel="documentos" hidden>
-            <div class="panel-intro"><span class="area-icon" aria-hidden="true">✦</span><div><h3>Documentos Jurídicos</h3><p>Documentos claros, revisados de acuerdo con el propósito específico de su trámite.</p></div></div>
-            <div class="service-grid">
-              <article><h4>Memoriales</h4><p>Preparación de escritos y solicitudes para su presentación ante autoridades.</p></article>
-              <article><h4>Documentos privados</h4><p>Acuerdos, reconocimientos de deuda y otros instrumentos entre partes.</p></article>
-              <article><h4>Estatutos y reglamentos</h4><p>Apoyo documental para organizaciones, asociaciones y entidades civiles.</p></article>
-              <article><h4>Revisión de documentos</h4><p>Lectura preventiva para identificar cláusulas o datos que requieren atención.</p></article>
-            </div>
-          </article>
+      <div class="hero-badges">
+        <div class="badge">
+          <span class="badge-icon">🏛</span>
+          <span>Junto a los Juzgados de El Alto</span>
+        </div>
+        <div class="badge">
+          <span class="badge-icon">⚡</span>
+          <span>Respuesta Inmediata</span>
+        </div>
+        <div class="badge">
+          <span class="badge-icon">🆓</span>
+          <span>1ª Consulta Gratis</span>
         </div>
       </div>
-    </section>
-
-    <section class="process section section-dark" id="proceso" aria-labelledby="process-title">
-      <div class="container">
-        <header class="section-heading section-heading-light"><p class="eyebrow">Nuestro proceso</p><h2 id="process-title">Una ruta clara desde la primera consulta.</h2><p>Cada situación requiere una revisión particular. Este es el punto de partida habitual.</p></header>
-        <ol class="process-list">
-          <li><span class="step-number">01</span><h3>Escuchamos</h3><p>Conocemos los hechos esenciales y la urgencia de su consulta.</p></li>
-          <li><span class="step-number">02</span><h3>Analizamos</h3><p>Revisamos la información disponible y las alternativas iniciales.</p></li>
-          <li><span class="step-number">03</span><h3>Definimos</h3><p>Proponemos una ruta de trabajo clara, responsable y transparente.</p></li>
-          <li><span class="step-number">04</span><h3>Acompañamos</h3><p>Le mantenemos informado durante las actuaciones que correspondan.</p></li>
-        </ol>
-      </div>
-    </section>
-
-    <section class="team section" id="equipo" aria-labelledby="team-title">
-      <div class="container">
-        <header class="section-heading"><p class="eyebrow">El equipo</p><h2 id="team-title">Abogados que conocen el entorno legal de El Alto.</h2><p>Atención cercana, comunicación directa y compromiso con una orientación responsable.</p></header>
-        <div class="team-grid">
-          <article class="team-card">
-            <div class="team-initial" aria-hidden="true">P</div>
-            <div><p class="team-kicker">Socia fundadora</p><h3>Patricia del Carmen Illanes Suxo</h3><p class="team-role">Derecho Penal · Ley 348 · Derecho Familiar</p><p>Atención y defensa en asuntos penales y familiares, con conocimiento del trabajo ante juzgados y fiscalías de El Alto.</p><a class="text-link" href="https://wa.me/59171571550?text=Hola%20Dra.%20Patricia%2C%20quisiera%20solicitar%20una%20consulta." target="_blank" rel="noopener">Contactar por WhatsApp <span aria-hidden="true">→</span></a></div>
-          </article>
-          <article class="team-card">
-            <div class="team-initial" aria-hidden="true">J</div>
-            <div><p class="team-kicker">Socio fundador</p><h3>Javier Conde Mayta</h3><p class="team-role">Derecho Civil · Penal · Registral</p><p>Orientación en procesos civiles, asuntos registrales y documentación relacionada con bienes y obligaciones.</p><a class="text-link" href="https://wa.me/59178827785?text=Hola%20Dr.%20Javier%2C%20quisiera%20solicitar%20una%20consulta." target="_blank" rel="noopener">Contactar por WhatsApp <span aria-hidden="true">→</span></a></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="advantages section section-muted" aria-labelledby="advantages-title">
-      <div class="container advantages-grid">
-        <header class="advantages-copy"><p class="eyebrow">Por qué Lago Azul</p><h2 id="advantages-title">Orientación jurídica con foco en su situación real.</h2><p>La confianza se construye con comunicación clara, reserva profesional y una estrategia adecuada a los antecedentes del caso.</p></header>
-        <div class="advantage-list">
-          <article><span aria-hidden="true">01</span><h3>Atención directa</h3><p>Comunicación cercana para que comprenda cada paso relevante.</p></article>
-          <article><span aria-hidden="true">02</span><h3>Enfoque estratégico</h3><p>Las decisiones se toman luego de evaluar sus antecedentes particulares.</p></article>
-          <article><span aria-hidden="true">03</span><h3>Confidencialidad</h3><p>Sus consultas y documentación se tratan con la debida reserva.</p></article>
-          <article><span aria-hidden="true">04</span><h3>Presencia local</h3><p>Conocemos la dinámica institucional de El Alto y La Paz.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="statistics" aria-label="Indicadores del despacho">
-      <div class="container stats-grid">
-        <div><strong data-counter="2">2</strong><span>abogados fundadores</span></div>
-        <div><strong data-counter="4">4</strong><span>áreas principales</span></div>
-        <div><strong>El Alto</strong><span>atención presencial</span></div>
-        <div><strong>WhatsApp</strong><span>canal de consulta</span></div>
-      </div>
-    </section>
-
-    <section class="testimonials section" aria-labelledby="testimonials-title">
-      <div class="container">
-        <header class="section-heading"><p class="eyebrow">Experiencias</p><h2 id="testimonials-title">La tranquilidad empieza con una buena orientación.</h2><p>Incluya aquí testimonios reales y autorizados de clientes; evitar publicar datos sensibles de los casos.</p></header>
-        <div class="testimonial-grid">
-          <article class="testimonial-card"><p class="quote-mark" aria-hidden="true">“</p><blockquote>Espacio para un testimonio real y autorizado de un cliente sobre su experiencia con el despacho.</blockquote><footer><strong>Nombre o iniciales autorizadas</strong><span>Área de atención</span></footer></article>
-          <article class="testimonial-card"><p class="quote-mark" aria-hidden="true">“</p><blockquote>Espacio para un segundo testimonio verificado. Mantenga el texto breve y proteja la privacidad de la persona.</blockquote><footer><strong>Nombre o iniciales autorizadas</strong><span>Área de atención</span></footer></article>
-          <article class="testimonial-card"><p class="quote-mark" aria-hidden="true">“</p><blockquote>Espacio para un tercer testimonio real que refleje claridad, respeto y acompañamiento profesional.</blockquote><footer><strong>Nombre o iniciales autorizadas</strong><span>Área de atención</span></footer></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq section section-muted" id="preguntas" aria-labelledby="faq-title">
-      <div class="container faq-layout">
-        <header class="faq-copy"><p class="eyebrow">Preguntas frecuentes</p><h2 id="faq-title">Antes de escribirnos, quizá esto le ayude.</h2><p>La información es orientativa y no sustituye la revisión profesional de un caso concreto.</p></header>
-        <div class="faq-list" data-accordion>
-          <article class="faq-item"><h3><button type="button" aria-expanded="false" aria-controls="faq-1">¿La primera consulta tiene costo?<span aria-hidden="true">+</span></button></h3><div id="faq-1" hidden><p>Puede comunicarse por WhatsApp para conocer la modalidad de atención y coordinar una consulta inicial según su situación.</p></div></article>
-          <article class="faq-item"><h3><button type="button" aria-expanded="false" aria-controls="faq-2">¿Qué debo llevar a una consulta?<span aria-hidden="true">+</span></button></h3><div id="faq-2" hidden><p>Reúna los documentos, notificaciones, contratos, mensajes o antecedentes que sean relevantes. No envíe documentos sensibles por canales no acordados.</p></div></article>
-          <article class="faq-item"><h3><button type="button" aria-expanded="false" aria-controls="faq-3">¿Atienden casos urgentes?<span aria-hidden="true">+</span></button></h3><div id="faq-3" hidden><p>Para asuntos urgentes, contáctenos por WhatsApp y explique brevemente la situación. Le indicaremos la disponibilidad y los pasos iniciales.</p></div></article>
-          <article class="faq-item"><h3><button type="button" aria-expanded="false" aria-controls="faq-4">¿El asistente virtual reemplaza a un abogado?<span aria-hidden="true">+</span></button></h3><div id="faq-4" hidden><p>No. El asistente ofrece orientación general y ayuda a organizar su consulta; un abogado debe analizar los antecedentes de su caso.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="location section" id="ubicacion" aria-labelledby="location-title">
-      <div class="container location-grid">
-        <div class="location-copy"><p class="eyebrow">Visítenos</p><h2 id="location-title">En el corazón legal de El Alto.</h2><address><p><strong>Edificio Libertad N.º 33, Planta Baja, Oficina N.º 7</strong><br>Calle 12, entre Av. Franco Valle y Raúl Salmón<br>Zona 12 de Octubre · El Alto, Bolivia</p></address><ul class="contact-list"><li><a href="https://wa.me/59171571550" target="_blank" rel="noopener">WhatsApp: 71571550</a></li><li><a href="https://wa.me/59178827785" target="_blank" rel="noopener">WhatsApp: 78827785</a></li></ul><a class="text-link" href="https://maps.google.com/?q=Zona+12+de+Octubre+El+Alto+Bolivia" target="_blank" rel="noopener">Abrir ubicación en Google Maps <span aria-hidden="true">→</span></a></div>
-        <div class="map-frame"><iframe title="Mapa referencial de Lago Azul en El Alto" src="https://www.google.com/maps?q=Zona%2012%20de%20Octubre%2C%20El%20Alto%2C%20Bolivia&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
-      </div>
-    </section>
-
-    <section class="final-cta" aria-labelledby="cta-title">
-      <div class="container final-cta-content"><p class="eyebrow">Lago Azul</p><h2 id="cta-title">Su situación merece una orientación responsable.</h2><p>Escríbanos y coordinemos una consulta para revisar los antecedentes de su caso.</p><a class="button button-gold" href="https://wa.me/59171571550?text=Hola%2C%20quisiera%20solicitar%20una%20consulta%20con%20Lago%20Azul." target="_blank" rel="noopener">Hablar por WhatsApp</a></div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div><a class="brand" href="#inicio"><span class="brand-mark" aria-hidden="true">⚖</span><span class="brand-name">Lago <strong>Azul</strong></span></a><p>Despacho legal en El Alto, Bolivia.</p></div>
-      <nav aria-label="Enlaces del pie de página"><h2>Explorar</h2><a href="#servicios">Servicios</a><a href="#proceso">Proceso</a><a href="#equipo">Equipo</a><a href="#ubicacion">Ubicación</a></nav>
-      <div><h2>Contacto</h2><a href="https://wa.me/59171571550" target="_blank" rel="noopener">WhatsApp 71571550</a><a href="https://wa.me/59178827785" target="_blank" rel="noopener">WhatsApp 78827785</a></div>
     </div>
-    <div class="container footer-bottom"><p>© <span id="current-year">2026</span> Lago Azul. Todos los derechos reservados.</p><p>La información del sitio es de carácter general y no constituye asesoramiento jurídico.</p></div>
-  </footer>
-
-  <a class="whatsapp-float" href="https://wa.me/59171571550?text=Hola%2C%20quisiera%20solicitar%20una%20consulta%20con%20Lago%20Azul." target="_blank" rel="noopener" aria-label="Contactar a Lago Azul por WhatsApp"><span aria-hidden="true">◉</span><span>WhatsApp</span></a>
-
-  <button class="chat-launcher" id="chat-launcher" type="button" aria-expanded="false" aria-controls="legal-chat"><span aria-hidden="true">⚖</span><span>Asistente legal</span></button>
-  <section class="chat-widget" id="legal-chat" aria-label="Asistente virtual de Lago Azul" hidden>
-    <header><div><p>Asistente virtual</p><h2>Lago Azul</h2></div><button id="chat-close" type="button" aria-label="Cerrar asistente">×</button></header>
-    <div class="chat-messages" id="chat-messages" aria-live="polite"><div class="chat-message chat-message-assistant">Hola. Soy el asistente virtual de Lago Azul. Puedo ofrecer orientación general sobre las áreas del despacho, pero un abogado debe revisar los antecedentes de su caso.</div></div>
-    <form class="chat-form" id="chat-form"><label class="sr-only" for="chat-input">Escriba su consulta</label><textarea id="chat-input" name="message" rows="2" maxlength="1600" placeholder="Escriba su consulta…" required></textarea><button type="submit">Enviar</button></form>
+    <div class="hero-scroll-hint">
+      <span>Descubra más</span>
+      <div class="scroll-arrow"></div>
+    </div>
   </section>
 
-  <script src="js/script.js" defer></script>
+  <!-- ═══════════════════════════════════════════
+       SERVICIOS — TABS INTERACTIVOS
+  ═══════════════════════════════════════════ -->
+  <section class="servicios" id="servicios">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="section-eyebrow">Áreas de Práctica</p>
+        <h2 class="section-title">Soluciones Legales<br/><span class="accent">a su Medida</span></h2>
+        <p class="section-desc">Cobertura integral en las ramas del derecho que más afectan a las familias y empresas de El Alto.</p>
+      </div>
+
+      <!-- Tab navigation -->
+      <div class="tabs-wrapper">
+        <div class="tabs-nav" id="tabsNav" role="tablist">
+          <button class="tab-btn active" data-tab="penal" role="tab" aria-selected="true">Procesos Penales</button>
+          <button class="tab-btn" data-tab="ley348" role="tab" aria-selected="false">Ley 348</button>
+          <button class="tab-btn" data-tab="civil" role="tab" aria-selected="false">Procesos Civiles</button>
+          <button class="tab-btn" data-tab="familiar" role="tab" aria-selected="false">Derecho Familiar</button>
+          <button class="tab-btn" data-tab="ddrr" role="tab" aria-selected="false">Trámites DDRR</button>
+          <button class="tab-btn" data-tab="juridica" role="tab" aria-selected="false">Personería Jurídica</button>
+          <button class="tab-btn" data-tab="migratorio" role="tab" aria-selected="false">Migración Chile</button>
+          <button class="tab-btn" data-tab="documentos" role="tab" aria-selected="false">Documentos</button>
+        </div>
+
+        <!-- Tab panels -->
+        <div class="tabs-content">
+
+          <!-- PENAL -->
+          <div class="tab-panel active" id="tab-penal" role="tabpanel">
+            <div class="panel-intro">
+              <div class="panel-icon">⚖️</div>
+              <div>
+                <h3>Procesos Penales</h3>
+                <p>Defensa técnica especializada en cada etapa del proceso penal boliviano. Actuamos con rapidez desde la primera hora.</p>
+              </div>
+            </div>
+            <div class="services-grid">
+              <div class="service-card" data-detail="preliminar">
+                <div class="card-header"><span class="card-num">01</span><h4>Etapa Preliminar</h4></div>
+                <p>Actuación estratégica desde el primer momento: denuncia, aprehensión y primeras diligencias investigativas.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20en%20la%20Etapa%20Preliminar." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card" data-detail="preparatoria">
+                <div class="card-header"><span class="card-num">02</span><h4>Etapa Preparatoria</h4></div>
+                <p>Control de la investigación fiscal, impugnación de actos y protección de derechos durante la investigación.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20en%20la%20Etapa%20Preparatoria." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card" data-detail="acusacion">
+                <div class="card-header"><span class="card-num">03</span><h4>Acusación</h4></div>
+                <p>Defensa ante acusación formal. Preparación y presentación de excepciones, objeciones y estrategia de juicio.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20en%20la%20etapa%20de%20Acusaci%C3%B3n." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card" data-detail="cautelares">
+                <div class="card-header"><span class="card-num">04</span><h4>Medidas Cautelares</h4></div>
+                <p>Especialistas en la aplicación, modificación y cese de medidas cautelares. Evitamos detenciones injustificadas.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20sobre%20Medidas%20Cautelares." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card" data-detail="preventiva">
+                <div class="card-header"><span class="card-num">05</span><h4>Detención Preventiva</h4></div>
+                <p>Recursos inmediatos contra la detención preventiva. Cesación, modificación y alternativas a la privación de libertad.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20ayuda%20urgente%20con%20Detenici%C3%B3n%20Preventiva." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card" data-detail="incidentes">
+                <div class="card-header"><span class="card-num">06</span><h4>Incidentes y Excepciones</h4></div>
+                <p>Planteamiento de incidentes procesales, excepciones de incompetencia, prejudicialidad y litispendencia.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20sobre%20Incidentes%20procesales." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card" data-detail="desistimiento">
+                <div class="card-header"><span class="card-num">07</span><h4>Desistimientos</h4></div>
+                <p>Gestión de acuerdos y desistimientos para resolver el conflicto penal de manera anticipada y favorable.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20informaci%C3%B3n%20sobre%20Desistimiento." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card" data-detail="apelacion">
+                <div class="card-header"><span class="card-num">08</span><h4>Apelación Incidental</h4></div>
+                <p>Recursos de apelación ante el Tribunal Departamental contra resoluciones de primera instancia.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20sobre%20Apelaci%C3%B3n%20Incidental." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card" data-detail="abreviado">
+                <div class="card-header"><span class="card-num">09</span><h4>Procedimiento Abreviado</h4></div>
+                <p>Negociación y tramitación del procedimiento abreviado para obtener la solución más favorable en el menor tiempo.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20informaci%C3%B3n%20sobre%20el%20Procedimiento%20Abreviado." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- LEY 348 -->
+          <div class="tab-panel" id="tab-ley348" role="tabpanel">
+            <div class="panel-intro">
+              <div class="panel-icon">🛡️</div>
+              <div>
+                <h3>Ley 348 — Violencia Familiar</h3>
+                <p>Protección integral para víctimas de violencia doméstica y familiar. Actuamos con sensibilidad, rapidez y firmeza.</p>
+              </div>
+            </div>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">01</span><h4>Reparación del Daño</h4></div>
+                <p>Reclamamos la reparación integral del daño sufrido: económico, psicológico y moral, ante los tribunales competentes.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20Ley%20348%20-%20Reparaci%C3%B3n%20del%20Da%C3%B1o." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">02</span><h4>Salidas Alternativas</h4></div>
+                <p>Gestión de conciliaciones, suspensión condicional y otros mecanismos alternativos al juicio ordinario bajo la Ley 348.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20Ley%20348%20-%20Salidas%20Alternativas." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- CIVIL -->
+          <div class="tab-panel" id="tab-civil" role="tabpanel">
+            <div class="panel-intro">
+              <div class="panel-icon">📜</div>
+              <div>
+                <h3>Procesos Civiles</h3>
+                <p>Recupere lo que es suyo. Defendemos sus bienes, derechos contractuales y patrimoniales con determinación.</p>
+              </div>
+            </div>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">01</span><h4>Procesos Ejecutivos</h4></div>
+                <p>Cobro de obligaciones mediante documentos ejecutivos: cheques, pagarés, letras de cambio y títulos valores.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20en%20Procesos%20Ejecutivos." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">02</span><h4>Cobro de Deudas</h4></div>
+                <p>Recuperación de deudas mediante procesos monitorios, embargos y ejecuciones de bienes del deudor.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20para%20Cobro%20de%20Deudas." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">03</span><h4>Usucapión</h4></div>
+                <p>Regularización de la propiedad por posesión prolongada. Asesoría completa para obtener el título legal de su inmueble.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20para%20un%20proceso%20de%20Usucapi%C3%B3n." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">04</span><h4>Anticréticos</h4></div>
+                <p>Redacción, revisión y litigio de contratos de anticrético. Protegemos tanto a propietarios como a anticresistas.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20sobre%20Anticr%C3%A9ticos." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">05</span><h4>Conciliación</h4></div>
+                <p>Resolución ágil de conflictos civiles mediante acuerdo. Ahorre tiempo y dinero con una solución negociada.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20informaci%C3%B3n%20sobre%20Conciliaci%C3%B3n." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAMILIAR -->
+          <div class="tab-panel" id="tab-familiar" role="tabpanel">
+            <div class="panel-intro">
+              <div class="panel-icon">👨👩👧</div>
+              <div>
+                <h3>Procesos Familiares</h3>
+                <p>Manejamos los asuntos familiares más delicados con discreción, empatía y total profesionalismo.</p>
+              </div>
+            </div>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">01</span><h4>Asistencia Familiar</h4></div>
+                <p>Fijación, modificación y ejecución de asistencia familiar. Defendemos el bienestar de sus hijos ante los juzgados.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20sobre%20Asistencia%20Familiar." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">02</span><h4>Divorcios</h4></div>
+                <p>Tramitación de divorcios convencionales y controvertidos. Asesoría sobre tenencia, bienes gananciales y pensiones.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20sobre%20Divorcio." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">03</span><h4>Tenencia y Guarda</h4></div>
+                <p>Proceso de determinación y modificación de la tenencia de menores, siempre priorizando el interés superior del niño.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20sobre%20Tenencia%20de%20menores." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- DDRR -->
+          <div class="tab-panel" id="tab-ddrr" role="tabpanel">
+            <div class="panel-intro">
+              <div class="panel-icon">🏠</div>
+              <div>
+                <h3>Trámites en DDRR</h3>
+                <p>Presencia directa y diaria en Derechos Reales de El Alto. Resolvemos sus trámites registrales con agilidad.</p>
+              </div>
+            </div>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">01</span><h4>Aclaración de Datos Técnicos</h4></div>
+                <p>Corrección de errores en superficies, colindancias y datos técnicos registrados en Derechos Reales.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20para%20Aclaraci%C3%B3n%20de%20Datos%20T%C3%A9cnicos%20en%20DDRR." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">02</span><h4>Aclaración de Identidad</h4></div>
+                <p>Corrección de datos de identidad del titular en los registros de Derechos Reales. Evite problemas futuros en sus transacciones.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20para%20Aclaraci%C3%B3n%20de%20Identidad%20en%20DDRR." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">03</span><h4>Trámites Registrales en General</h4></div>
+                <p>Inscripción de minutas, transferencias, hipotecas, poderes y todo tipo de actos jurídicos ante Derechos Reales.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20para%20Tr%C3%A1mites%20en%20DDRR." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- PERSONERÍA JURÍDICA -->
+          <div class="tab-panel" id="tab-juridica" role="tabpanel">
+            <div class="panel-intro">
+              <div class="panel-icon">🏢</div>
+              <div>
+                <h3>Personería Jurídica</h3>
+                <p>Damos vida legal a sus organizaciones. Redactamos estatutos y reglamentos que sientan bases sólidas desde el inicio.</p>
+              </div>
+            </div>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">01</span><h4>Elaboración de Estatutos</h4></div>
+                <p>Redacción de estatutos para asociaciones, sindicatos, cooperativas, juntas vecinales y organizaciones civiles.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20para%20elaborar%20Estatutos." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">02</span><h4>Elaboración de Reglamentos</h4></div>
+                <p>Redacción de reglamentos internos que norman el funcionamiento, derechos y obligaciones de los miembros.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20para%20elaborar%20Reglamentos." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- MIGRATORIO -->
+          <div class="tab-panel" id="tab-migratorio" role="tabpanel">
+            <div class="panel-intro">
+              <div class="panel-icon">✈️</div>
+              <div>
+                <h3>Asesoría Legal Migratoria — Chile</h3>
+                <p>Gestionamos sus trámites para regularizar su situación migratoria en Chile desde El Alto, sin complicaciones.</p>
+              </div>
+            </div>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">01</span><h4>Residencia Temporal (2 años)</h4></div>
+                <p>Asesoría y gestión completa para obtener la residencia temporal de dos años en territorio chileno.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20migratoria%20para%20Chile%20-%20Residencia%20Temporal." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">02</span><h4>Certificado REJAP</h4></div>
+                <p>Obtención del Certificado de Antecedentes Penales REJAP, requisito indispensable para trámites migratorios en Chile.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20el%20Certificado%20REJAP%20para%20Chile." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">03</span><h4>Apostillado — Cancillería</h4></div>
+                <p>Gestión del apostillado de documentos ante la Cancillería boliviana para su validez internacional.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20asesor%C3%ADa%20sobre%20Apostillado%20en%20Canciller%C3%ADa." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- DOCUMENTOS -->
+          <div class="tab-panel" id="tab-documentos" role="tabpanel">
+            <div class="panel-intro">
+              <div class="panel-icon">📝</div>
+              <div>
+                <h3>Redacción de Documentos Legales</h3>
+                <p>Documentos jurídicos redactados con precisión y claridad, con valor legal completo ante cualquier autoridad.</p>
+              </div>
+            </div>
+            <div class="services-grid">
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">01</span><h4>Memoriales Judiciales</h4></div>
+                <p>Redacción de memoriales, demandas, recursos e impugnaciones para presentar ante juzgados y tribunales.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20redacci%C3%B3n%20de%20Memoriales%20judiciales." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">02</span><h4>Minutas de Inmuebles</h4></div>
+                <p>Elaboración de minutas de transferencia, anticrético, hipoteca y otros actos sobre bienes inmuebles.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20redacci%C3%B3n%20de%20Minuta%20sobre%20bienes%20inmuebles." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">03</span><h4>Minutas de Vehículos</h4></div>
+                <p>Minutas de transferencia de vehículos motorizados con validez ante el RUAT y otras instituciones.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20redacci%C3%B3n%20de%20Minuta%20de%20veh%C3%ADculo." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+              <div class="service-card">
+                <div class="card-header"><span class="card-num">04</span><h4>Documentos Privados</h4></div>
+                <p>Contratos privados, reconocimientos de deuda, acuerdos y cualquier documento con efectos jurídicos entre partes.</p>
+                <a href="https://wa.me/59171571550?text=Necesito%20redacci%C3%B3n%20de%20Documentos%20Privados." target="_blank" rel="noopener" class="card-cta">Consultar →</a>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /tabs-content -->
+      </div><!-- /tabs-wrapper -->
+    </div>
+  </section>
+  <!-- ═══════════════════════════════════════════
+       EQUIPO
+  ═══════════════════════════════════════════ -->
+  <section class="equipo" id="equipo">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="section-eyebrow">El Equipo</p>
+        <h2 class="section-title">Abogados que<br/><span class="accent">Conocen su Caso</span></h2>
+        <p class="section-desc">Profesionales con trayectoria comprobada en el sistema judicial de El Alto y La Paz.</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar">
+            <div class="avatar-circle avatar-f">P</div>
+            <div class="avatar-badge">Dra.</div>
+          </div>
+          <div class="team-info">
+            <h3>Patricia del Carmen<br/>Illanes Suxo</h3>
+            <p class="team-role">Socia Fundadora — Derecho Penal &amp; Familiar</p>
+            <p class="team-bio">Amplia experiencia en defensa penal, procesos bajo la Ley 348 y derecho de familia. Conoce a fondo los juzgados y fiscalías de El Alto, lo que permite una respuesta legal inmediata y eficaz para cada cliente.</p>
+            <div class="team-tags">
+              <span class="tag">Derecho Penal</span>
+              <span class="tag">Ley 348</span>
+              <span class="tag">Familia</span>
+            </div>
+            <a href="https://wa.me/59171571550?text=Hola%20Dra.%20Patricia%2C%20quisiera%20una%20consulta%20gratuita." target="_blank" rel="noopener" class="btn-team">Contactar →</a>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-avatar">
+            <div class="avatar-circle avatar-m">J</div>
+            <div class="avatar-badge">Dr.</div>
+          </div>
+          <div class="team-info">
+            <h3>Javier Conde<br/>Mayta</h3>
+            <p class="team-role">Socio Fundador — Derecho Civil &amp; Registral</p>
+            <p class="team-bio">Especialista en procesos civiles, trámites en Derechos Reales y asesoría migratoria. Su conocimiento registral y contractual garantiza la seguridad jurídica de los bienes y transacciones de sus clientes.</p>
+            <div class="team-tags">
+              <span class="tag">Derecho Penal</span>
+              <span class="tag">Derecho Civil</span>
+              <span class="tag">DDRR</span>
+              
+            </div>
+            <a href="https://wa.me/59178827785?text=Hola%20Dr.%20Javier%2C%20quisiera%20una%20consulta%20gratuita." target="_blank" rel="noopener" class="btn-team">Contactar →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       PROPUESTA DE VALOR — STRIP
+  ═══════════════════════════════════════════ -->
+  <section class="valor-strip">
+    <div class="valor-container">
+      <div class="valor-item">
+        <span class="valor-num">+500</span>
+        <span class="valor-label">Casos Resueltos</span>
+      </div>
+      <div class="valor-divider"></div>
+      <div class="valor-item">
+        <span class="valor-num">2</span>
+        <span class="valor-label">Abogados Especialistas</span>
+      </div>
+      <div class="valor-divider"></div>
+      <div class="valor-item">
+        <span class="valor-num">100%</span>
+        <span class="valor-label">Presencia en Juzgados</span>
+      </div>
+      <div class="valor-divider"></div>
+      <div class="valor-item">
+        <span class="valor-num">Gratis</span>
+        <span class="valor-label">Primera Consulta</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       UBICACIÓN
+  ═══════════════════════════════════════════ -->
+  <section class="ubicacion" id="ubicacion">
+    <div class="section-container">
+      <div class="section-header">
+        <p class="section-eyebrow">Encuéntrenos</p>
+        <h2 class="section-title">Estamos en el<br/><span class="accent">Corazón Legal de El Alto</span></h2>
+      </div>
+
+      <div class="ubicacion-grid">
+        <div class="ubicacion-info">
+          <div class="info-block">
+            <div class="info-icon">📍</div>
+            <div>
+              <h4>Dirección</h4>
+              <p>Edificio Libertad N° 33, Planta Baja<br/>
+              Oficina N° 7 — Calle 12<br/>
+              (Entre Av. Franco Valle y Raúl Salmon)<br/>
+              <strong>Zona 12 de Octubre — El Alto, Bolivia</strong></p>
+            </div>
+          </div>
+
+          <div class="info-block proximity-box">
+            <div class="info-icon">🏛</div>
+            <div>
+              <h4>Estratégicamente Ubicados</h4>
+              <p>A pasos de la <strong>Corte Departamental de Justicia</strong>, los <strong>Juzgados de El Alto</strong>, <strong>DDRR</strong> y la <strong>Fiscalía</strong>. Actuamos con velocidad cuando más lo necesita.</p>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <div class="info-icon">📞</div>
+            <div>
+              <h4>Contáctenos Ahora</h4>
+              <div class="contact-links">
+                <a href="https://wa.me/59171571550?text=Hola%2C%20quisiera%20una%20consulta%20gratuita." target="_blank" rel="noopener" class="contact-link">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  WhatsApp 71571550
+                </a>
+                <a href="https://wa.me/59178827785?text=Hola%2C%20quisiera%20una%20consulta%20gratuita." target="_blank" rel="noopener" class="contact-link">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                  WhatsApp 78827785
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mapa-visual">
+          <div class="mapa-placeholder">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3824.1!2d-68.17!3d-16.51!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDMwJzM2LjAiUyA2OMKwMTAnMTIuMCJX!5e0!3m2!1ses!2sbo!4v1234567890"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Ubicación Lago Azul — El Alto, Bolivia">
+            </iframe>
+            <div class="mapa-pin-overlay">
+              <div class="pin-marker">
+                <span>⚖</span>
+                <div class="pin-label">Lago Azul<br/><small>Edificio Libertad #33, Of. 7</small></div>
+              </div>
+            </div>
+          </div>
+          <a href="https://maps.google.com/?q=Zona+12+de+Octubre+El+Alto+Bolivia" target="_blank" rel="noopener" class="mapa-link">Ver en Google Maps →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       CTA FINAL
+  ═══════════════════════════════════════════ -->
+  <section class="cta-final">
+    <div class="cta-content">
+      <h2>Su problema legal<br/>tiene solución.</h2>
+      <p>No espere más. Contáctenos hoy y reciba orientación jurídica gratuita de nuestros especialistas en El Alto.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/59171571550?text=Hola%2C%20quiero%20mi%20consulta%20gratuita%20con%20Lago%20Azul." target="_blank" rel="noopener" class="btn btn-primary btn-large">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consulta Gratuita — WhatsApp
+        </a>
+        <a href="https://wa.me/59178827785?text=Hola%2C%20quiero%20mi%20consulta%20gratuita%20con%20Lago%20Azul." target="_blank" rel="noopener" class="btn btn-ghost">Segundo Número — 78827785</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo-icon">⚖</span>
+        <span class="logo-text">Lago <span class="logo-accent">Azul</span></span>
+        <p>Despacho Legal — El Alto, Bolivia</p>
+      </div>
+      <div class="footer-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#equipo">El Equipo</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="https://wa.me/59171571550" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Despacho Legal Lago Azul · Abg. Patricia Illanes Suxo &amp; Abg. Javier Conde Mayta</p>
+        <p class="footer-address">Edificio Libertad #33, Of. 7 · Calle 12, Zona 12 de Octubre · El Alto, Bolivia</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══════════════════════════════════════════
+       BOTÓN FLOTANTE WHATSAPP
+  ═══════════════════════════════════════════ -->
+  <a href="https://wa.me/59171571550?text=Hola%2C%20quisiera%20una%20consulta%20gratuita%20con%20Lago%20Azul." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    <div class="whatsapp-pulse"></div>
+    <svg width="30" height="30" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span class="whatsapp-label">Consulta Gratis</span>
+  </a>
+
+  <script src="script.js"></script>
+  <script src="chat.js"></script>
+</script>
 </body>
 </html>
+
