@@ -383,12 +383,28 @@
     </div>
 </div>
 
+<!-- Contenedor principal del chat -->
+<div style="max-width: 400px; margin: 20px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 8px; padding: 15px; background: #fff;">
+    
+    <!-- Caja donde se muestran los mensajes -->
+    <div id="chat" style="height: 300px; overflow-y: auto; border-bottom: 1px solid #eee; margin-bottom: 10px; padding: 5px; display: flex; flex-direction: column; gap: 8px;">
+    </div>
+    
+    <!-- Fila de entrada -->
+    <div style="display: flex; gap: 5px;">
+        <input type="text" id="mensaje" placeholder="Escribe tu consulta legal..." style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" onkeypress="if(event.key === 'Enter') enviarMensaje();">
+        <button onclick="enviarMensaje()" style="padding: 8px 15px; background: #0f2b46; color: white; border: none; border-radius: 4px; cursor: pointer;">Enviar</button>
+    </div>
+</div>
+
 <script>
 async function enviarMensaje() {
-    const inputField = document.getElementById('user-input');
-    const messagesDiv = document.getElementById('chat-messages');
-    const mensajeTexto = inputField.value.trim();
+    const inputField = document.getElementById('mensaje');
+    const messagesDiv = document.getElementById('chat');
 
+    if (!inputField || !messagesDiv) return;
+
+    const mensajeTexto = inputField.value.trim();
     if (!mensajeTexto) return;
 
     // Mostrar mensaje del usuario en pantalla
@@ -418,18 +434,8 @@ async function enviarMensaje() {
     } catch (error) {
         messagesDiv.innerHTML += `<div style="margin: 5px 0; color: red;">Error al conectar con el servidor.</div>`;
     }
-}<!-- Contenedor principal del chat -->
-<div style="max-width: 400px; margin: 20px auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 8px; padding: 15px; background: #fff;">
-    
-    <!-- Caja donde se muestran los mensajes con id="chat" -->
-    <div id="chat" style="height: 300px; overflow-y: auto; border-bottom: 1px solid #eee; margin-bottom: 10px; padding: 5px; display: flex; flex-direction: column; gap: 8px;">
-    </div>
-    
-    <!-- Fila de entrada con id="mensaje" -->
-    <div style="display: flex; gap: 5px;">
-        <input type="text" id="mensaje" placeholder="Escribe tu consulta legal..." style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px;" onkeypress="if(event.key === 'Enter') enviarMensaje();">
-        <button onclick="enviarMensaje()" style="padding: 8px 15px; background: #0f2b46; color: white; border: none; border-radius: 4px; cursor: pointer;">Enviar</button>
-    </div>
+}
+</script>
 
 </div>
 </script>
