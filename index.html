@@ -374,6 +374,52 @@
       </div><!-- /tabs-wrapper -->
     </div>
   </section>
+  <div id="chat-container" style="max-width: 400px; margin: auto; font-family: sans-serif; border: 1px solid #ccc; border-radius: 8px; padding: 15px;">
+    <div id="chat-messages" style="height: 300px; overflow-y: scroll; border-bottom: 1px solid #eee; margin-bottom: 10px; padding: 5px;"></div>
+    
+    <div style="display: flex; gap: 5px;">
+        <input type="text" id="user-input" placeholder="Escribe tu consulta legal..." style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+        <button onclick="enviarMensaje()" style="padding: 8px 15px; background: #0f2b46; color: white; border: none; border-radius: 4px; cursor: pointer;">Enviar</button>
+    </div>
+</div>
+
+<script>
+async function enviarMensaje() {
+    const inputField = document.getElementById('user-input');
+    const messagesDiv = document.getElementById('chat-messages');
+    const mensajeTexto = inputField.value.trim();
+
+    if (!mensajeTexto) return;
+
+    // Mostrar mensaje del usuario en pantalla
+    messagesDiv.innerHTML += `<div style="margin: 5px 0; text-align: right;"><b>Tú:</b> ${mensajeTexto}</div>`;
+    inputField.value = '';
+    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+    try {
+        // Petición POST a tu FastAPI local
+        const response = await fetch('http://127.0.0.1:8000/chat', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                session_id: "usuario_web_1",
+                message: mensajeTexto
+            })
+        });
+
+        const data = await response.json();
+
+        // Mostrar respuesta de la IA en pantalla
+        messagesDiv.innerHTML += `<div style="margin: 5px 0; text-align: left; color: #0f2b46;"><b>Lago Azul AI:</b> ${data.response || data.message || JSON.stringify(data)}</div>`;
+        messagesDiv.scrollTop = messagesDiv.scrollHeight;
+
+    } catch (error) {
+        messagesDiv.innerHTML += `<div style="margin: 5px 0; color: red;">Error al conectar con el servidor.</div>`;
+    }
+}
+</script>
   <!-- ═══════════════════════════════════════════
        EQUIPO
   ═══════════════════════════════════════════ -->
